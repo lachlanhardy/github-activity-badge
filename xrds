@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xrds:XRDS
+    xmlns:xrds="xri://$xrds"
+    xmlns:openid="http://openid.net/xmlns/1.0"
+    xmlns="xri://$xrd*($v*2.0)">
+  <XRD>
+    <Service priority="0">
+      <Type>http://specs.eaut.org/1.0/template</Type>
+      <!-- <URI>http://openid.sappenin.com/%7Busername%7D</URI> -->
+      <URI>http://lachstock.com.au/</URI>
+      <!-- <URI>http://openid.claimid.com/%7Busername%7Dhardy</URI> -->
+      <!-- <URI>http://lachlanhardy.myvidoop.com/</URI> -->
+    </Service>
+    <!-- <Service priority="1">
+      <Type>http://specs.eaut.org/1.0/mapping</Type>
+      <URI>http://emailtoid.net/mapper/</URI>
+    </Service> -->
+  </XRD>
+</xrds:XRDS>

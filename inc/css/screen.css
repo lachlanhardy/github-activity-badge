@@ -1,0 +1,116 @@
+/****
+Lachstock
+http://lachstock.com.au
+20080620
+
+TOC
+- =Generic Rules
+	-- =Generic Text
+		 --- =Links
+		 --- =Headings
+		 --- =Body Text
+		 --- =Date, Times etc
+	-- =Generic Forms
+- =Structure
+  -- =Columns
+  -- =Footer
+- =JS Enabled
+
+****/
+
+
+/* - =Generic Rules - */
+
+	/* -- =Generic Text -- */
+
+		/* --- =Links --- */
+		a:link {color: #0066B3;}
+		a:visited {color: #464646;}
+		a:hover, a:active, a:focus {color: #FF8000;}
+		
+		/* --- =Headings --- */
+		h1, h2, h3, h4, h5, h6 {font-family: 'Archer Semibold', 'Clarendon Std', 'Century Old Style Std', 'Century Schoolbook', Georgia, serif; margin: 0 0 0.5em;}
+		h1 {font-size: 3em;}
+		h2 {font-size: 1.6em;}
+		h3 {font-size: 1.5em;}
+		h4 {font-size: 1.4em;}
+		h5 {font-size: 1.2em;}
+		h6 {font-size: 1.1em;}
+
+		
+		/* --- =Body Text --- */
+		#content p,
+		#content li,
+		#content ol,
+		#content ul {margin: 0 0 0.5em;}
+		#content p {font-size: 1.07em; line-height: 1.5; margin: 0 0 2em 0;}
+		#content ul {}
+			#content ul li {font-size: 1.07em; list-style-position: inside; list-style-type: circle;}
+		#content ol {}
+			#content ol li {font-size: 1.07em; list-style-position: inside; list-style-type: decimal;}
+			
+		.amp {background: #0e0e0e; color: #666; font: italic 100 1.25em Baskerville, "Goudy Old Style", "Palatino", Georgia, "Book Antiqua", serif; position: relative; top: 2px;}
+		
+
+		/* --- =Dates, Times etc --- */
+		.date {font: 1em/1.6 Georgia, serif;}
+
+
+/* - =Structure - */
+body {background: #fff; color: #0e0e0e; font: 62.5%/1.3 Georgia, "Times New Roman", Times, serif; margin: 0; padding: 0;}
+	
+#page {border-top: 1em solid #BFE4FF; font-size: 1.5em; padding: 0 1em 1em 0; position: relative;}
+
+  #header {background: #0e0e0e; border-bottom: 2px solid #666; color: #fff; overflow: auto; padding: 0.2em 1em 0.5em 1em;}
+    #header h1 {background: #0e0e0e; color: #ff8000; float: left; font-weight: 700; letter-spacing: 0.06em; margin: 0; width: auto;}
+    #header #status {font-size: 1.8em; margin: 0 0 0.2em 10em; padding: 0.65em 0 0 0;}
+      #status p {}
+      #status a:link {background: #0e0e0e; color: #0066B3;}
+      #status a:visited {background: #0e0e0e; color: #ccc;}
+      #status a:hover, 
+      #status a:active, 
+      #status a:focus {background: #0e0e0e; color: #ff8000;}
+      
+      #status #status-link {margin: 0 0 0 0.8em; position: relative; top: 0.14em; visibility: hidden;}
+      #status:hover #status-link {visibility: visible;}
+
+  /* -- =Columns -- */
+  .column {border-left: 1em solid #BFE4FF; float: left; margin: 0 0 0 1em; padding: 1em 0 0 1em; position: relative; width: 19em;}
+    .column span.marker {border-left: 1em solid #80C9FF; display: block; left: -1em; line-height: 1; position: absolute; top: -1em;}
+    .item {margin: 0 0 1em 0;}
+    .featured {background: #BFE4FF; border-left: 1em solid #80C9FF; margin: 0 0 1em -2em; padding: 0 0 1em 1em;}
+    
+  .vcard a.fn,
+  .vcard a.fn:link,
+  .vcard a.fn:visited,
+  .vcard a.fn:hover,
+  .vcard a.fn:active,
+  .vcard a.fn:focus {background: #fff; color: #0e0e0e; text-decoration: none;}
+  
+  #facets ul li a:after{background: #fff; color: #333; content: "("attr(href)")"; font-size: 0.6em; padding: 0 0 0 1em;} 
+  #blog {border-width: 0.5em; font-size: 2em; margin: 0 0 0 -1em; padding: 0 0 0 0.5em;}
+  
+  #github {width: 28em;}
+    #github dl {}
+      #github dt {font-weight: 700; margin: 0 0 0.5em 0;}
+        #github dt strong {display: block;}
+          #github dt a {}
+        #github dt span.date {font-size: 0.8em; font-style: italic;}
+      #github dd {margin: 0 0 0 1em;}
+        #github dd.repo {}
+          #github dd.repo a {}
+        #github dd.filenames {background: transparent; color: #666;}
+          #github dd.filenames ul {padding: 0 0 0 1.4em;}
+            #github dd.filenames li {list-style-type: disc;}
+        #github dd.date {}
+
+	/* -- =Footer -- */
+	#footer {background: #fff; clear: both; color: #666; margin: 0 auto 1em auto; padding: 8em 0 0 0; width: 71em;}
+	  #footer p {display: inline;}
+	  #footer ul {display: inline;}
+	    #footer ul li {display: inline;}
+	      #footer ul li a {}
+
+/* - =JS enabled - */
+
+html.js {}

@@ -1,0 +1,46 @@
+{
+    "commit": 
+    {
+        "removed": 
+        [
+        ],
+         "added": 
+        [
+        ],
+         "message": "updating index",
+         "modified": 
+        [
+            {
+                "diff": "@@ -89,
+                9 +89,
+                6 @@\n       \u003C/div\u003E \u003C!-- // .item #blog --\u003E\n       \u003Cdiv class=\"item\" id=\"facets\"\u003E\n         \u003Cul\u003E\n-          \u003C!-- \u003Cli\u003E\n-                      \u003Ca href=\"http://log.lachstock.com.au\" rel=\"me\"\u003Eblog\u003C/a\u003E\n-                    \u003C/li\u003E --\u003E\n           \u003Cli\u003E\n             \u003Ca href=\"http://flickr.com/photos/lachlanhardy/\" rel=\"me\"\u003Ephotos\u003C/a\u003E\n           \u003C/li\u003E\n@@ -117,
+                8 +114,
+                8 @@\n             \u003Ca href=\"http://www.dopplr.com/traveller/lachlanhardy/public/header\"\u003Etrips\u003C/a\u003E\n           \u003C/li\u003E\n         \u003C/ul\u003E\n-      \u003C/div\u003E \u003C!-- // .item --\u003E\n-    \u003C/div\u003E \u003C!-- // .column #facets --\u003E\n+      \u003C/div\u003E \u003C!-- // .item #facets --\u003E\n+    \u003C/div\u003E \u003C!-- // .column --\u003E\n   \u003C/div\u003E \u003C!-- // #page --\u003E\n   \u003Cdiv id=\"footer\"\u003E\n     \u003Cp\u003EThis is both my testbed and my exemplar so code and practices are alternately things I would never do in production,
+                 things I wish I could do in production or things I strongly recommend. Ideally,
+                 they move from the former through to the latter. Part of that is validation:\u003C/p\u003E",
+                 "filename": "static/index.html"
+            }
+        ],
+         "parents": 
+        [
+            {
+                "id": "56bf3732ca265555fe2809150279a55627c2eab1"
+            }
+        ],
+         "url": "http://github.com/lachlanhardy/lachstock/commit/60c06a13b50eec6ffbd1188c32a8544343000fb1",
+         "author": 
+        {
+            "name": "Lachlan Hardy",
+             "email": "lachlan@lachstock.com.au"
+        },
+         "id": "60c06a13b50eec6ffbd1188c32a8544343000fb1",
+         "committed_date": "2008-10-20T08:48:53-07:00",
+         "authored_date": "2008-08-30T08:48:53-07:00",
+         "tree": "b7680b76d2f03a5afd21c6dc6347bdec76c5db63",
+         "committer": 
+        {
+            "name": "Lachlan Hardy",
+             "email": "lachlan@lachstock.com.au"
+        }
+    }
+}
