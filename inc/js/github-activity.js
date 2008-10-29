@@ -1,14 +1,7 @@
-function githubCallback(json) {
+function githubbage(json) {
 
   var commits = json.user.repositories;
 	var username = "lachlanhardy";
-	var script = "";
-	var comts = [];
-  var repos = [];
-  var sorter = function (a, b) {
-    return a.committed_date <= b.committed_date ? 1 : -1;
-  };
-  
   var url = "";
 
  $.getJSON("http://pipes.yahoo.com/pipes/pipe.run?_id=VARThu_f3RGx59sz1b3fcQ&_render=json&username=" + username + "&_callback=?",
@@ -70,8 +63,8 @@ function githubCallback(json) {
           
           // Building date for prettifying
           var dateSpan = $(document.createElement("span"));
-          var theDate = parseDate(data.commit.committed_date); // converts date to format Pretty Date recognises
-          dateSpan.addClass("date").text(theDate).attr("title", theDate);
+          var dateTime = parseDate(data.commit.committed_date); // converts date to format Pretty Date recognises
+          dateSpan.addClass("date").text(dateTime).attr("title", dateTime);
           dateSpan.prettyDate();
           setInterval(function(){ dateSpan.prettyDate(); }, 5000);
           
@@ -105,25 +98,23 @@ function githubCallback(json) {
   );
 }
 
-function parseDate(theDate) {
+function parseDate(dateTime) {
   var timeZone = 10; // or "-3" as appropriate
   
   // TODO: need to add date changing functionality too
-  theDate = theDate.substring(0,19) + "Z";
-  var theirTime = theDate.substring(11,13);
+  dateTime = dateTime.substring(0,19) + "Z";
+  var theirTime = dateTime.substring(11,13);
   var ourTime = parseInt(theirTime) + 7 + timeZone;
   if (ourTime > 24) {
     ourTime = ourTime - 24;
   };
-  theDate = theDate.replace("T" + theirTime, "T" + ourTime);
-  return theDate;
+  dateTime = dateTime.replace("T" + theirTime, "T" + ourTime);
+  return dateTime;
 };
 
-var addGithub = function() {
-
+var githubActivity = function() {
   var mainScript = $(document.createElement("script"));
-  mainScript.attr("src", "http://github.com/api/v1/json/lachlanhardy?callback=githubCallback");
-  // mainScript.attr("src", "test/github.js");
+  mainScript.attr("src", "http://github.com/api/v1/json/lachlanhardy?callback=githubbage");
   
   $("body").append(mainScript);
 };
