@@ -11,7 +11,8 @@ function githubCallback(json) {
   
   var url = "";
 
- $.getJSON("http://pipes.yahoo.com/pipes/pipe.run?_id=VARThu_f3RGx59sz1b3fcQ&_render=json&username=" + username + "&_callback=?",
+ // $.getJSON("http://pipes.yahoo.com/pipes/pipe.run?_id=VARThu_f3RGx59sz1b3fcQ&_render=json&username=" + username + "&_callback=?",
+ $.getJSON("http://query.yahooapis.com/v1/yql?q=select%20*%20from%20atom%20where%20url%3D%22http%3A%2F%2Fgithub.com%2Flachlanhardy.atom%22&format=json&callback=callback",
     function(feed){
       
       $(feed.value.items).each(function(i){
