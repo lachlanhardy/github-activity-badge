@@ -1,6 +1,5 @@
-function githubbage(json) {
+function githubActivity() {
 
-  var commits = json.user.repositories;
 	var username = "lachlanhardy";
   var url = "";
 
@@ -110,11 +109,4 @@ function parseDate(dateTime) {
   };
   dateTime = dateTime.replace("T" + theirTime, "T" + ourTime);
   return dateTime;
-};
-
-var githubActivity = function() {
-  var mainScript = $(document.createElement("script"));
-  mainScript.attr("src", "http://github.com/api/v1/json/lachlanhardy?callback=githubbage");
-  
-  $("body").append(mainScript);
 };
