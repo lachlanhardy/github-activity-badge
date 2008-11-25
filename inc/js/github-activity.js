@@ -1,6 +1,6 @@
-function githubCallback(json) {
+function githubCallback() {
 
-  var commits = json.user.repositories;
+  // var commits = json.user.repositories;
 	var username = "lachlanhardy";
 	var script = "";
 	var comts = [];
@@ -12,8 +12,13 @@ function githubCallback(json) {
   var url = "";
 
  // $.getJSON("http://pipes.yahoo.com/pipes/pipe.run?_id=VARThu_f3RGx59sz1b3fcQ&_render=json&username=" + username + "&_callback=?",
- $.getJSON("http://query.yahooapis.com/v1/yql?q=select%20*%20from%20atom%20where%20url%3D%22http%3A%2F%2Fgithub.com%2Flachlanhardy.atom%22&format=json&callback=callback",
+ 
+ var signedURL2 = makeSignedRequest("dj0yJmk9VnJScHVOSDFabUcxJmQ9WVdrOU5rWnBTekEzTkdFbWNHbzlNakV5TWpNeU5UQXpPQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD04Mg--","6729364e1b8c35325972666360b0686206cc9058","http://query.yahooapis.com/v1/yql?q=select%20*%20from%20atom%20where%20url%3D%22http%3A%2F%2Fgithub.com%2Flachlanhardy.atom%22&format=json&callback=myCallback");
+ loadJSON(signedURL2);
+ // $.getJSON(makeSignedRequest("dj0yJmk9Rm1MUU9iWmdNZ2FjJmQ9WVdrOVZWWk9Wa3h5TldFbWNHbzlNVEk0TXpNMk1EYzFPQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1kMg--","570e2ef3db460b114e6a0a987709a0f6a90b5ec0","http://query.yahooapis.com/v1/yql?q=select%20*%20from%20atom%20where%20url%3D%22http%3A%2F%2Fgithub.com%2Flachlanhardy.atom%22&format=json&callback=?"),
+ $.getJSON("signedURL2",
     function(feed){
+      alert(feed);
       
       $(feed.value.items).each(function(i){
         var v = feed.value.items[i]['y:id'].value;
@@ -120,11 +125,11 @@ function parseDate(theDate) {
   return theDate;
 };
 
-var addGithub = function() {
-
-  var mainScript = $(document.createElement("script"));
-  mainScript.attr("src", "http://github.com/api/v1/json/lachlanhardy?callback=githubCallback");
-  // mainScript.attr("src", "test/github.js");
-  
-  $("body").append(mainScript);
-};
+// var addGithub = function() {
+// 
+//   var mainScript = $(document.createElement("script"));
+//   mainScript.attr("src", "http://github.com/api/v1/json/lachlanhardy?callback=githubCallback");
+//   // mainScript.attr("src", "test/github.js");
+//   
+//   $("body").append(mainScript);
+// };
