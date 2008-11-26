@@ -1,52 +1,48 @@
-function githubCallback() {
+var username = "lachlanhardy";
 
-  // var commits = json.user.repositories;
-	var username = "lachlanhardy";
-	var script = "";
-	var comts = [];
-  var repos = [];
-  var sorter = function (a, b) {
-    return a.committed_date <= b.committed_date ? 1 : -1;
-  };
+var loadJSON = function(url) {
+	var headID = document.getElementsByTagName("head")[0];         
+	var newScript = document.createElement('script');
+		newScript.type = 'text/javascript';
+		newScript.src = url;
+	headID.appendChild(newScript);
+};
+
+var signedURL2 = makeSignedRequest("dj0yJmk9VnJScHVOSDFabUcxJmQ9WVdrOU5rWnBTekEzTkdFbWNHbzlNakV5TWpNeU5UQXpPQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD04Mg--","6729364e1b8c35325972666360b0686206cc9058","http://query.yahooapis.com/v1/yql?q=select%20*%20from%20atom%20where%20url%3D%22http%3A%2F%2Fgithub.com%2F" + username + ".atom%22&format=json&callback=githubCallback");
+
+function githubCallback(feed) {
+
+  var url = "";      
   
-  var url = "";
-
- // $.getJSON("http://pipes.yahoo.com/pipes/pipe.run?_id=VARThu_f3RGx59sz1b3fcQ&_render=json&username=" + username + "&_callback=?",
- 
- var signedURL2 = makeSignedRequest("dj0yJmk9VnJScHVOSDFabUcxJmQ9WVdrOU5rWnBTekEzTkdFbWNHbzlNakV5TWpNeU5UQXpPQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD04Mg--","6729364e1b8c35325972666360b0686206cc9058","http://query.yahooapis.com/v1/yql?q=select%20*%20from%20atom%20where%20url%3D%22http%3A%2F%2Fgithub.com%2Flachlanhardy.atom%22&format=json&callback=myCallback");
- loadJSON(signedURL2);
- // $.getJSON(makeSignedRequest("dj0yJmk9Rm1MUU9iWmdNZ2FjJmQ9WVdrOVZWWk9Wa3h5TldFbWNHbzlNVEk0TXpNMk1EYzFPQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1kMg--","570e2ef3db460b114e6a0a987709a0f6a90b5ec0","http://query.yahooapis.com/v1/yql?q=select%20*%20from%20atom%20where%20url%3D%22http%3A%2F%2Fgithub.com%2Flachlanhardy.atom%22&format=json&callback=?"),
- $.getJSON("signedURL2",
-    function(feed){
-      alert(feed);
-      
-      $(feed.value.items).each(function(i){
-        var v = feed.value.items[i]['y:id'].value;
-        var idValue = v.match(/([^\/]*):([^\/]*)\/([^\/]*)$/);
-        var eventType = idValue[2];
-        
-        // only for CommitEvents right now - need to bust out other events as options
-        switch(eventType) {
-          case 'CommitEvent':
-            if (url == "") {
-              url = feed.value.items[i].link;
-              titleText = " committed to ";
-              return url;
-              return titleText;
-            }
-            break;
-          case 'FollowEvent':
-            //
-            break;
-          case 'GistEvent':
-            //
-            break;
-          case 'WikiEvent':
-            //
-            break;
+  $(feed.query.results.entry).each(function(i){
+    var v = feed.query.results.entry[i]['id'];
+    var idValue = v.match(/([^\/]*):([^\/]*)\/([^\/]*)$/);
+    var eventType = idValue[2];
+    
+    // only for CommitEvents right now - need to bust out other events as options
+    switch(eventType) {
+      case 'CommitEvent':
+        if (url == "") {
+          url = feed.query.results.entry[i].link.href;
+          titleText = " committed to ";
+          return url;
+          return titleText;
         }
-      });
-      
+        break;
+      case 'FollowEvent':
+        //
+        break;
+      case 'GistEvent':
+        //
+        break;
+      case 'WikiEvent':
+        //
+        break;
+      default:
+        break;
+
+    };
+  });  
       // grabbing details from URL
       var v = url.match(/http:\/\/github.com\/([^\/]*)\/([^\/]*)\/commit\/([^\/]*)$/);
       var user = v[1];
@@ -107,9 +103,7 @@ function githubCallback() {
           
         } 
       );
-    }
-  );
-}
+    };
 
 function parseDate(theDate) {
   var timeZone = 10; // or "-3" as appropriate
@@ -124,12 +118,3 @@ function parseDate(theDate) {
   theDate = theDate.replace("T" + theirTime, "T" + ourTime);
   return theDate;
 };
-
-// var addGithub = function() {
-// 
-//   var mainScript = $(document.createElement("script"));
-//   mainScript.attr("src", "http://github.com/api/v1/json/lachlanhardy?callback=githubCallback");
-//   // mainScript.attr("src", "test/github.js");
-//   
-//   $("body").append(mainScript);
-// };

@@ -29,34 +29,7 @@
   <!-- Calling JS fun -->
   <script src="inc/js/go.js" type="text/javascript"></script>
   <!-- // Calling JS fun -->
-  
-  <script type="text/javascript">
 
-  var signedURL = makeSignedRequest("dj0yJmk9Rm1MUU9iWmdNZ2FjJmQ9WVdrOVZWWk9Wa3h5TldFbWNHbzlNVEk0TXpNMk1EYzFPQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1kMg--","570e2ef3db460b114e6a0a987709a0f6a90b5ec0","http://query.yahooapis.com/v1/yql?q=select%20*%20from%20search.news%20where%20query%3D%22halloween%22&format=json&callback=myCallback");
-
-  var loadJSON = function(url) {
-  	var headID = document.getElementsByTagName("head")[0];         
-  	var newScript = document.createElement('script');
-  		newScript.type = 'text/javascript';
-  		newScript.src = url;
-  	headID.appendChild(newScript);
-  }
-
-  var myCallback = function(yqlResults){  
-  	var liHolder = "";
-  	for (var i=0, yqlRlen=yqlResults.query.results.result.length; i < yqlRlen; i++) {		
-  		liHolder += "<li><b>" + yqlResults.query.results.result[i].title + "</b>" +  
-  		"<em> " + yqlResults.query.results.result[i].date + "</em>" + 
-  		" <a href=" + yqlResults.query.results.result[i].url + ">" + yqlResults.query.results.result[i].source + "</a><br>" + 
-  		yqlResults.query.results.result[i].abstract + "</li>";
-  	}
-  	document.getElementById("mylist").innerHTML = liHolder;
-  }
-
-  //loadJSON(signedURL2); //use the signedURL
-  </script>
-  
- 
 </head>
 <body>
   <div id="header">
